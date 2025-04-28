@@ -1,0 +1,21 @@
+struct ShopItem {
+    name: String,
+    quantity: u32,
+}
+
+fn main() {
+    let item = create_item("Socks", 200);
+    let in_stock = is_in_stock(&item);
+    println!("{} is in stock: {in_stock}", item.name);
+}
+
+fn create_item(name: &str, quantity: u32) -> ShopItem {
+    ShopItem {
+        name: name.to_string(),
+        quantity,
+    }
+}
+
+fn is_in_stock(item: &ShopItem) -> bool {
+    item.quantity > 0
+}
